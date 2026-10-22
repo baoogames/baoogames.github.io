@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback — Dust Rider</title><style>
+:root { --ink:#2b1a12; --paper:#f6ead0; --edge:#d9c39a; --red:#b8322a; }
+* { box-sizing: border-box; }
+body { margin:0; background:#3b2618; color:var(--ink); font:17px/1.6 Georgia, 'Times New Roman', serif; }
+main { max-width:760px; margin:32px auto; padding:32px 36px; background:var(--paper);
+       border:3px solid var(--edge); border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+h1 { font-size:1.9em; line-height:1.2; margin-top:0; }
+h2 { font-size:1.25em; margin-top:1.8em; border-bottom:1px solid var(--edge); padding-bottom:.2em; }
+a { color:var(--red); }
+.lang { float:right; font-size:.9em; }
+footer { max-width:760px; margin:0 auto 32px; color:#e6d1a4; font-size:.85em; text-align:center; }
+ol li, ul li { margin:.3em 0; }
+.card { background:#fff8e6; border:1px solid var(--edge); border-radius:6px; padding:12px 18px; margin:14px 0; }
+@media (max-width:600px) { main { margin:0; border-radius:0; padding:22px 18px; } }
+
+label { display:block; font-weight:bold; margin:1.2em 0 .4em; }
+textarea, input[type=text] { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--edge); border-radius:6px; background:#fff8e6; color:var(--ink); }
+textarea { min-height:110px; resize:vertical; }
+.stars { display:flex; gap:6px; }
+.stars button { font-size:2em; line-height:1; background:none; border:0; cursor:pointer; color:#c9b48a; padding:2px; }
+.stars button.on { color:#d9952a; }
+.send { margin-top:1.4em; font:inherit; font-weight:bold; font-size:1.05em; padding:12px 28px; border:0; border-radius:6px; background:var(--red); color:#fff; cursor:pointer; }
+.send:disabled { opacity:.6; cursor:default; }
+#msg { margin-top:1em; font-weight:bold; }
+.small { font-size:.85em; color:#6b5440; margin-top:1.6em; }
+.langs { float:right; font-size:.85em; } .langs a { margin-left:.5em; }
+</style></head>
+<body><main><div class="langs"><a href="?lang=es">ES</a> <a href="?lang=en">EN</a> <a href="?lang=fr">FR</a> <a href="?lang=pt">PT</a> <a href="?lang=de">DE</a></div>
+<h1 id="h1"></h1><p id="intro"></p>
+<form id="f" novalidate>
+<label id="l-rating"></label><div class="stars" id="stars"></div>
+<label for="bug" id="l-bug"></label><textarea id="bug" maxlength="2000"></textarea>
+<label for="wish" id="l-wish"></label><textarea id="wish" maxlength="2000"></textarea>
+<label for="device" id="l-device"></label><input type="text" id="device" maxlength="120" autocomplete="off">
+<button class="send" id="send" type="submit"></button>
+<div id="msg" role="status"></div>
+</form>
+<p class="small" id="privacy"></p>
+<script>
+const T = {"es": {"title": "Comentarios — Dust Rider", "h1": "¿Qué tal Dust Rider?", "intro": "Gracias por probar el juego. Cuéntanos qué te gustó, qué falló y qué cambiarías: lo leemos todo.", "rating": "Tu nota", "bug": "¿Encontraste algún error? ¿Dónde y qué pasó?", "wish": "¿Qué cambiarías o qué te gustaría que tuviera?", "device": "Modelo de tu teléfono (opcional)", "send": "Enviar", "sending": "Enviando…", "thanks": "¡Gracias, vaquero! Recibimos tu comentario.", "empty": "Escribe algo o elige una nota.", "error": "No se pudo enviar. Inténtalo en un rato o escribe a", "privacy": "No pedimos tu nombre ni tu correo. Para frenar el spam guardamos un código cifrado de tu conexión, nunca tu dirección IP."}, "en": {"title": "Feedback — Dust Rider", "h1": "How's Dust Rider?", "intro": "Thanks for playing. Tell us what you liked, what broke and what you'd change: we read everything.", "rating": "Your rating", "bug": "Did you find a bug? Where, and what happened?", "wish": "What would you change or like to see?", "device": "Your phone model (optional)", "send": "Send", "sending": "Sending…", "thanks": "Thanks, partner! We got your comment.", "empty": "Write something or pick a rating.", "error": "It could not be sent. Try again later or write to", "privacy": "We don't ask for your name or email. To stop spam we keep a hashed code of your connection, never your IP address."}, "fr": {"title": "Avis — Dust Rider", "h1": "Alors, Dust Rider ?", "intro": "Merci d'avoir joué. Dis-nous ce qui t'a plu, ce qui a bugué et ce que tu changerais : on lit tout.", "rating": "Ta note", "bug": "Tu as trouvé un bug ? Où, et que s'est-il passé ?", "wish": "Que changerais-tu, ou qu'aimerais-tu y trouver ?", "device": "Modèle de ton téléphone (facultatif)", "send": "Envoyer", "sending": "Envoi…", "thanks": "Merci, cow-boy ! Ton avis est bien arrivé.", "empty": "Écris quelque chose ou choisis une note.", "error": "Impossible d'envoyer. Réessaie plus tard ou écris à", "privacy": "Nous ne demandons ni ton nom ni ton e-mail. Contre le spam, nous gardons un code chiffré de ta connexion, jamais ton adresse IP."}, "pt": {"title": "Comentários — Dust Rider", "h1": "E aí, curtiu Dust Rider?", "intro": "Obrigado por jogar. Conte o que você gostou, o que deu errado e o que mudaria: lemos tudo.", "rating": "Sua nota", "bug": "Encontrou algum erro? Onde e o que aconteceu?", "wish": "O que você mudaria ou gostaria de ver?", "device": "Modelo do seu celular (opcional)", "send": "Enviar", "sending": "Enviando…", "thanks": "Valeu, caubói! Recebemos seu comentário.", "empty": "Escreva algo ou escolha uma nota.", "error": "Não foi possível enviar. Tente mais tarde ou escreva para", "privacy": "Não pedimos seu nome nem seu e-mail. Para evitar spam guardamos um código cifrado da sua conexão, nunca seu endereço IP."}, "de": {"title": "Feedback — Dust Rider", "h1": "Wie gefällt dir Dust Rider?", "intro": "Danke fürs Spielen. Sag uns, was dir gefallen hat, was kaputt war und was du ändern würdest: Wir lesen alles.", "rating": "Deine Bewertung", "bug": "Hast du einen Fehler gefunden? Wo, und was ist passiert?", "wish": "Was würdest du ändern oder dir wünschen?", "device": "Dein Handymodell (optional)", "send": "Senden", "sending": "Wird gesendet…", "thanks": "Danke, Partner! Dein Kommentar ist angekommen.", "empty": "Schreib etwas oder wähle eine Bewertung.", "error": "Senden fehlgeschlagen. Versuch es später oder schreib an", "privacy": "Wir fragen nicht nach Name oder E-Mail. Gegen Spam speichern wir einen verschlüsselten Code deiner Verbindung, nie deine IP-Adresse."}};
+const URL_ = "https://hrevexzouvggjrysukuj.supabase.co", KEY = "sb_publishable_U1CVAkze75Vt7TYvrhO6mg_vpZZvBlW", GAME = "com.baoogames.dustrider";
+const q = new URLSearchParams(location.search).get("lang");
+const nav = (navigator.language || "").slice(0, 2).toLowerCase();
+const L = T[q] ? q : (T[nav] ? nav : "en");
+const t = T[L];
+document.documentElement.lang = L; document.title = t.title;
+for (const k of ["h1", "intro", "privacy"]) document.getElementById(k).textContent = t[k];
+for (const k of ["rating", "bug", "wish", "device"]) document.getElementById("l-" + k).textContent = t[k];
+const send = document.getElementById("send"), msg = document.getElementById("msg");
+send.textContent = t.send;
+let rating = null;
+const stars = document.getElementById("stars");
+for (let i = 1; i <= 5; i++) {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = "★"; b.setAttribute("aria-label", i + "/5");
+  b.onclick = () => { rating = rating === i ? null : i; [...stars.children].forEach((s, j) => s.classList.toggle("on", rating !== null && j < rating)); };
+  stars.appendChild(b);
+}
+document.getElementById("f").onsubmit = async e => {
+  e.preventDefault();
+  const bug = document.getElementById("bug").value.trim(), wish = document.getElementById("wish").value.trim();
+  if (rating === null && !bug && !wish) { msg.textContent = t.empty; return; }
+  send.disabled = true; send.textContent = t.sending; msg.textContent = "";
+  try {
+    const r = await fetch(URL_ + "/rest/v1/rpc/submit_feedback", {
+      method: "POST",
+      headers: { "apikey": KEY, "Authorization": "Bearer " + KEY, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_game: GAME, p_rating: rating, p_bug: bug, p_wish: wish,
+                              p_device: document.getElementById("device").value.trim(), p_lang: L }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    document.getElementById("f").innerHTML = "<p id=msg></p>";
+    document.getElementById("msg").textContent = t.thanks;
+  } catch (err) {
+    msg.innerHTML = ""; msg.append(t.error + " ");
+    const a = document.createElement("a"); a.href = "mailto:contact@baoogames.com"; a.textContent = "contact@baoogames.com";
+    msg.append(a, ".");
+    send.disabled = false; send.textContent = t.send;
+  }
+};
+</script></main><footer>Baoogames · <a href="/" style="color:#e6d1a4">baoogames.com</a></footer></body></html>
