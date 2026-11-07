@@ -1,27 +1,126 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baoogames</title><style>
-:root { --ink:#2b1a12; --paper:#f6ead0; --edge:#d9c39a; --red:#b8322a; }
-* { box-sizing: border-box; }
-body { margin:0; background:#3b2618; color:var(--ink); font:17px/1.6 Georgia, 'Times New Roman', serif; }
-main { max-width:760px; margin:32px auto; padding:32px 36px; background:var(--paper);
-       border:3px solid var(--edge); border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,.4); }
-h1 { font-size:1.9em; line-height:1.2; margin-top:0; }
-h2 { font-size:1.25em; margin-top:1.8em; border-bottom:1px solid var(--edge); padding-bottom:.2em; }
-a { color:var(--red); }
-.lang { float:right; font-size:.9em; }
-footer { max-width:760px; margin:0 auto 32px; color:#e6d1a4; font-size:.85em; text-align:center; }
-ol li, ul li { margin:.3em 0; }
-.card { background:#fff8e6; border:1px solid var(--edge); border-radius:6px; padding:12px 18px; margin:14px 0; }
-@media (max-width:600px) { main { margin:0; border-radius:0; padding:22px 18px; } }
-</style></head>
-<body><main>
-<h1>Baoogames</h1>
-<p>Juegos para el teléfono, hechos en Colombia. · Mobile games made in Colombia.</p>
-<h2>Dust Rider</h2>
-<ul>
-<li>Política de privacidad: <a href="dust-rider/privacidad/">español</a> · <a href="dust-rider/privacy/">English</a></li>
-<li>Eliminar tu cuenta: <a href="dust-rider/borrar-cuenta/">español</a> · <a href="dust-rider/delete-account/">English</a></li>
-<li>Comentarios: <a href="dust-rider/comentarios/">español</a> · <a href="dust-rider/feedback/">English</a></li>
-</ul>
-<p>Contacto · Contact: <a href="mailto:contact@baoogames.com">contact@baoogames.com</a></p></main><footer>Baoogames · <a href="/" style="color:#e6d1a4">baoogames.com</a></footer></body></html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baoo Games · Juegos para el teléfono</title>
+<meta name="description" content="Baoo Games es un estudio de videojuegos de Colombia. Hacemos juegos para el teléfono que se aprenden en un segundo y no se sueltan.">
+<meta property="og:title" content="Baoo Games · Juegos para el teléfono">
+<meta property="og:description" content="Baoo Games es un estudio de videojuegos de Colombia. Hacemos juegos para el teléfono que se aprenden en un segundo y no se sueltan.">
+<meta property="og:image" content="https://baoogames.com/assets/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0616">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<div class="fondo" aria-hidden="true"><canvas id="chispas"></canvas><div class="rejilla"></div><div class="ruido"></div></div>
+<header class="barra">
+  <a class="marca" href=""><img src="assets/img/escudo.webp" alt=""><span>BAOO<b>GAMES</b></span></a>
+  <nav>
+    <a class="opc" href="#juegos"><span class="es">Juegos</span><span class="en">Games</span></a>
+    <a class="opc" href="#estudio"><span class="es">Estudio</span><span class="en">Studio</span></a>
+    <a class="opc" href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    <button class="idioma" type="button" aria-label="Language">EN</button>
+  </nav>
+</header>
+
+<main>
+<div class="portada">
+  <div class="aparece">
+    <span class="etiqueta"><i></i><span class="es">Estudio indie · Colombia</span><span class="en">Indie studio · Colombia</span></span>
+    <h1><span><span class="es">Juegos que</span><span class="en">Games that</span></span><span class="brillo"><span class="es">no puedes</span><span class="en">you can't</span></span><span><span class="es">soltar.</span><span class="en">put down.</span></span></h1>
+    <p><span class="es">Somos Baoo Games. Hacemos juegos para el teléfono que se aprenden en un segundo, se juegan con un dedo y te hacen decir «una más».</span><span class="en">We're Baoo Games. We make mobile games you learn in a second, play with one finger and keep saying “one more”.</span></p>
+    <div class="botones">
+      <a class="boton" href="#juegos"><span class="es">Ver nuestros juegos</span><span class="en">See our games</span></a>
+      <a class="boton fantasma" href="#contacto"><span class="es">Hablemos</span><span class="en">Get in touch</span></a>
+    </div>
+  </div>
+  <div class="escenario aparece" aria-hidden="true">
+    <div class="anillo"></div><div class="anillo dos"></div>
+    <img class="escudo" src="assets/img/escudo.webp" alt="">
+  </div>
+</div>
+
+<div class="cinta" aria-hidden="true"><div><span>HECHO EN COLOMBIA</span><span>JUEGOS PARA EL TELÉFONO</span><span>UN DEDO BASTA</span><span>MADE IN COLOMBIA</span><span>MOBILE GAMES</span><span>ONE FINGER IS ENOUGH</span><span>HECHO EN COLOMBIA</span><span>JUEGOS PARA EL TELÉFONO</span><span>UN DEDO BASTA</span><span>MADE IN COLOMBIA</span><span>MOBILE GAMES</span><span>ONE FINGER IS ENOUGH</span></div></div>
+
+<section id="juegos">
+  <div class="titulo aparece">
+    <div><span class="mini"><span class="es">Nuestros juegos</span><span class="en">Our games</span></span><h2><span class="es">Elige tu partida</span><span class="en">Pick your game</span></h2></div>
+    <p><span class="es">Cada juego cabe en tu bolsillo y en un descanso de cinco minutos.</span><span class="en">Every game fits in your pocket and in a five-minute break.</span></p>
+  </div>
+  <div class="juegos">
+<a class="carta aparece" href="double-getaway/" style="--c:#ff7a1a">
+  <div class="arte"><span class="estado"><span class="es">Próximamente</span><span class="en">Coming soon</span></span><img src="assets/img/double-getaway-arte.webp" alt="Double Getaway" loading="lazy"></div>
+  <div class="info">
+    <img class="icono" src="assets/img/double-getaway-icono.webp" alt="" loading="lazy">
+    <h3>Double Getaway</h3>
+    <span class="genero"><span class="es">Puzzle · Un deslizamiento</span><span class="en">Puzzle · One swipe</span></span>
+    <p><span class="es">Dos ladrones gemelos, un solo dedo. Desliza y los dos se mueven a la vez: llévalos a su alcantarilla antes de que los atrapen.</span><span class="en">Two twin thieves, one finger. Swipe and both move at once: get them to their manhole before they get caught.</span></p>
+    <span class="ver"><span class="es">Ver juego</span><span class="en">See game</span></span>
+  </div>
+</a>
+<a class="carta aparece" href="dust-rider/" style="--c:#ff8a3d">
+  <div class="arte"><span class="estado"><span class="es">En pruebas</span><span class="en">In testing</span></span><img src="assets/img/dust-rider-icono.webp" alt="Dust Rider" loading="lazy"></div>
+  <div class="info">
+    <img class="icono" src="assets/img/dust-rider-icono.webp" alt="" loading="lazy">
+    <h3>Dust Rider</h3>
+    <span class="genero"><span class="es">Acción · Un dedo</span><span class="en">Action · One finger</span></span>
+    <p><span class="es">Galopa por pueblos del Viejo Oeste pintados a mano. Tumba a los bandidos antes de que desenfunden… y no le dispares a los civiles.</span><span class="en">Gallop through hand-painted Wild West towns. Take down the bandits before they draw… and don&#x27;t shoot the townsfolk.</span></p>
+    <span class="ver"><span class="es">Ver juego</span><span class="en">See game</span></span>
+  </div>
+</a>
+    <div class="carta secreta aparece">
+      <div class="signo">?</div>
+      <h3><span class="es">El próximo</span><span class="en">What's next</span></h3>
+      <p><span class="es">Ya estamos cocinando el siguiente. Pronto lo verás aquí.</span><span class="en">We're already cooking the next one. You'll see it here soon.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="estudio">
+  <div class="estudio">
+    <div class="texto aparece">
+      <span class="mini"><span class="es">El estudio</span><span class="en">The studio</span></span>
+      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1;margin:8px 0 18px"><span class="es">Dos amigos, un escudo</span><span class="en">Two friends, one shield</span></h2>
+      <p><span class="es">Baoo Games nació en Colombia con una idea simple: <strong>juegos fáciles de empezar y difíciles de soltar</strong>. Diseñamos, programamos y probamos cada juego nosotros mismos, hasta que se siente bien en la mano.</span><span class="en">Baoo Games was born in Colombia with a simple idea: <strong>games that are easy to start and hard to put down</strong>. We design, code and playtest every game ourselves until it feels right in your hand.</span></p>
+    </div>
+    <div class="cifras aparece">
+      <div class="cifra"><b>2</b><span><span class="es">juegos en camino</span><span class="en">games on the way</span></span></div>
+      <div class="cifra"><b>1</b><span><span class="es">dedo para jugar</span><span class="en">finger to play</span></span></div>
+      <div class="cifra"><b>358</b><span><span class="es">niveles en Double Getaway</span><span class="en">levels in Double Getaway</span></span></div>
+      <div class="cifra"><b>100%</b><span><span class="es">indie</span><span class="en">indie</span></span></div>
+    </div>
+  </div>
+  <div class="valores">
+    <div class="valor aparece"><div class="ico">🎮</div><h3><span class="es">Un segundo para aprender</span><span class="en">One second to learn</span></h3><p><span class="es">Si hay que explicarlo mucho, no está listo.</span><span class="en">If it needs a long explanation, it isn't ready.</span></p></div>
+    <div class="valor aparece"><div class="ico">⚡</div><h3><span class="es">Partidas cortas</span><span class="en">Short sessions</span></h3><p><span class="es">Para la fila, el bus o el descanso.</span><span class="en">For the queue, the bus or the break.</span></p></div>
+    <div class="valor aparece"><div class="ico">🛡️</div><h3><span class="es">Juego limpio</span><span class="en">Fair play</span></h3><p><span class="es">Anuncios opcionales y tu privacidad primero.</span><span class="en">Optional ads and your privacy first.</span></p></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contacto aparece">
+    <span class="mini"><span class="es">Contacto</span><span class="en">Contact</span></span>
+    <h2><span class="es">¿Jugamos?</span><span class="en">Let's play</span></h2>
+    <p><span class="es">Prensa, alianzas, ideas o un bug que encontraste: escríbenos.</span><span class="en">Press, partnerships, ideas or a bug you found: drop us a line.</span></p>
+    <a class="boton" href="mailto:contact@baoogames.com">contact@baoogames.com</a>
+  </div>
+</section>
+</main>
+<footer>
+  <div>
+    <a class="marca" href=""><img src="assets/img/escudo.webp" alt=""><span>BAOO<b>GAMES</b></span></a>
+    <p><span class="es">Juegos para el teléfono, hechos en Colombia.</span><span class="en">Mobile games, made in Colombia.</span><br>© 2026 Baoo Games</p>
+  </div>
+  <div class="cols">
+    <div><h4><span class="es">Juegos</span><span class="en">Games</span></h4><a href="double-getaway/">Double Getaway</a><a href="dust-rider/">Dust Rider</a></div>
+    <div><h4><span class="es">Legal</span><span class="en">Legal</span></h4><a href="dust-rider/privacidad/" class="es">Dust Rider · Política de privacidad</a><a href="dust-rider/privacy/" class="en">Dust Rider · Privacy policy</a><a href="dust-rider/borrar-cuenta/" class="es">Dust Rider · Eliminar tu cuenta</a><a href="dust-rider/delete-account/" class="en">Dust Rider · Delete your account</a><a href="dust-rider/comentarios/" class="es">Dust Rider · Enviar comentarios</a><a href="dust-rider/feedback/" class="en">Dust Rider · Send feedback</a></div>
+    <div><h4><span class="es">Contacto</span><span class="en">Contact</span></h4><a href="mailto:contact@baoogames.com">contact@baoogames.com</a></div>
+  </div>
+</footer>
+<script src="assets/sitio.js"></script>
+</body>
+</html>

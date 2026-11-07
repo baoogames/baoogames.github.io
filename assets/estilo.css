@@ -1,0 +1,279 @@
+/* Baoo Games — the studio's colors come from the BG shield: orange, purple and steel on a night background. */
+:root {
+  --noche: #0b0616;
+  --noche-2: #140b26;
+  --panel: rgba(255, 255, 255, 0.045);
+  --borde: rgba(255, 255, 255, 0.09);
+  --naranja: #ff6a1a;
+  --naranja-2: #ff9a3d;
+  --morado: #7b2ff7;
+  --morado-2: #a46bff;
+  --acero: #b9b6c6;
+  --texto: #f3eefc;
+  --tenue: #a79fbd;
+  --grad: linear-gradient(100deg, var(--naranja) 0%, #ff3d7f 48%, var(--morado) 100%);
+  --radio: 22px;
+  --ancho: 1180px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--noche);
+  color: var(--texto);
+  font: 400 17px/1.6 "Chakra Petch", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, .marca { font-family: "Russo One", "Chakra Petch", system-ui, sans-serif; font-weight: 400; letter-spacing: .01em; }
+
+/* ---------- animated backdrop: drifting orange/purple glows, a perspective grid and pixel embers ---------- */
+.fondo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.fondo::before, .fondo::after {
+  content: ""; position: absolute; width: min(70vmax, 1100px); height: min(70vmax, 1100px); border-radius: 50%;
+  filter: blur(110px); opacity: .22; animation: deriva 22s ease-in-out infinite alternate;
+}
+.fondo::before { background: var(--naranja); top: -30vmax; left: -22vmax; }
+.fondo::after { background: var(--morado); bottom: -34vmax; right: -24vmax; animation-delay: -11s; }
+@keyframes deriva { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
+.rejilla {
+  position: absolute; left: -50%; right: -50%; bottom: -10%; height: 55%;
+  background-image:
+    linear-gradient(rgba(164, 107, 255, .22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(164, 107, 255, .22) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(62deg);
+  transform-origin: bottom;
+  mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+  animation: avanza 4s linear infinite;
+}
+@keyframes avanza { to { background-position: 0 60px, 0 0; } }
+#chispas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ruido {
+  position: absolute; inset: 0; opacity: .06; mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px);
+}
+
+/* ---------- top bar ---------- */
+.barra {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; align-items: center; gap: 18px;
+  padding: 14px max(16px, calc((100vw - var(--ancho)) / 2));
+  backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: linear-gradient(to bottom, rgba(11, 6, 22, .85), rgba(11, 6, 22, .35));
+  border-bottom: 1px solid var(--borde);
+}
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 20px; }
+.marca img { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 106, 26, .45)); }
+.marca b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.barra nav { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+.barra nav a {
+  text-decoration: none; color: var(--tenue); font-weight: 600; font-size: 15px;
+  padding: 8px 12px; border-radius: 10px; transition: color .2s, background .2s;
+}
+.barra nav a:hover { color: var(--texto); background: var(--panel); }
+.idioma {
+  font: 700 13px "Chakra Petch", sans-serif; color: var(--texto); cursor: pointer;
+  background: var(--panel); border: 1px solid var(--borde); border-radius: 999px; padding: 7px 12px;
+}
+.idioma:hover { border-color: var(--morado-2); }
+
+/* ---------- hero ---------- */
+.portada {
+  min-height: min(100svh, 980px); display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px;
+  max-width: var(--ancho); margin: 0 auto; padding: 110px 24px 60px;
+}
+.etiqueta {
+  display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--naranja-2);
+  padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 154, 61, .35); background: rgba(255, 106, 26, .08);
+}
+.etiqueta i { width: 8px; height: 8px; border-radius: 50%; background: var(--naranja); box-shadow: 0 0 12px var(--naranja); animation: late 1.6s infinite; }
+@keyframes late { 50% { opacity: .35; } }
+.portada h1 { font-size: clamp(44px, 7.2vw, 92px); line-height: .98; margin: 22px 0 18px; }
+.portada h1 span { display: block; }
+.brillo {
+  background: var(--grad); background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: corre 6s linear infinite;
+}
+@keyframes corre { to { background-position: 200% 0; } }
+.portada p { font-size: clamp(17px, 1.6vw, 20px); color: var(--tenue); max-width: 520px; margin: 0 0 30px; }
+.botones { display: flex; flex-wrap: wrap; gap: 14px; }
+.boton {
+  --c: var(--naranja);
+  position: relative; display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 26px; border-radius: 14px; font: 700 16px "Chakra Petch", sans-serif;
+  text-decoration: none; color: #fff; background: var(--grad); border: 0; cursor: pointer;
+  box-shadow: 0 10px 30px -8px rgba(255, 106, 26, .6), inset 0 1px 0 rgba(255, 255, 255, .3);
+  transition: transform .2s, box-shadow .2s;
+}
+.boton:hover { transform: translateY(-3px); box-shadow: 0 16px 40px -8px rgba(123, 47, 247, .7), inset 0 1px 0 rgba(255, 255, 255, .3); }
+.boton.fantasma { background: var(--panel); border: 1px solid var(--borde); box-shadow: none; }
+.boton.fantasma:hover { border-color: var(--morado-2); }
+
+.escenario { position: relative; display: grid; place-items: center; aspect-ratio: 1; }
+.escenario::before {
+  content: ""; position: absolute; inset: 8%; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--naranja), #ff3d7f, var(--morado), var(--naranja));
+  filter: blur(60px); opacity: .55; animation: gira 12s linear infinite;
+}
+.anillo {
+  position: absolute; inset: 4%; border-radius: 50%; border: 2px dashed rgba(164, 107, 255, .35);
+  animation: gira 40s linear infinite;
+}
+.anillo.dos { inset: 14%; border: 1px solid rgba(255, 154, 61, .3); animation-duration: 26s; animation-direction: reverse; }
+@keyframes gira { to { transform: rotate(360deg); } }
+.escudo {
+  position: relative; width: 74%; transform-style: preserve-3d;
+  animation: flota 6s ease-in-out infinite;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .6)) drop-shadow(0 0 30px rgba(123, 47, 247, .35));
+  transition: transform .15s ease-out;
+}
+@keyframes flota { 50% { translate: 0 -16px; } }
+
+/* ---------- ticker ---------- */
+.cinta {
+  overflow: hidden; border-block: 1px solid var(--borde);
+  background: linear-gradient(90deg, rgba(255, 106, 26, .12), rgba(123, 47, 247, .12));
+  transform: rotate(-1.5deg); margin: 10px -20px 0;
+}
+.cinta div { display: flex; width: max-content; animation: cinta 28s linear infinite; }
+.cinta span { font: 400 22px "Russo One", sans-serif; padding: 16px 26px; white-space: nowrap; color: var(--acero); }
+.cinta span::after { content: "✦"; margin-left: 52px; color: var(--naranja); }
+@keyframes cinta { to { transform: translateX(-50%); } }
+
+/* ---------- sections ---------- */
+section { max-width: var(--ancho); margin: 0 auto; padding: 110px 24px 40px; }
+.titulo { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 38px; flex-wrap: wrap; }
+.titulo h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1; margin: 8px 0 0; }
+.titulo p { color: var(--tenue); max-width: 420px; margin: 0; }
+.mini { font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--morado-2); }
+
+/* ---------- game cards ---------- */
+.juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px; }
+.carta {
+  --c: var(--naranja);
+  position: relative; display: flex; flex-direction: column; border-radius: var(--radio);
+  text-decoration: none; background: var(--noche-2); isolation: isolate;
+  transform-style: preserve-3d; transition: transform .2s ease-out;
+}
+.carta::before {   /* animated neon edge */
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1; padding: 1.5px;
+  background: conic-gradient(from var(--angulo, 0deg), var(--c), transparent 30%, var(--morado) 55%, transparent 80%, var(--c));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: .45; transition: opacity .3s;
+  animation: borde 5s linear infinite;
+}
+@property --angulo { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@keyframes borde { to { --angulo: 360deg; } }
+.carta:hover::before { opacity: 1; }
+.carta:hover { box-shadow: 0 30px 60px -20px color-mix(in srgb, var(--c) 55%, transparent); }
+.carta .arte { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radio) var(--radio) 0 0; }
+.carta .arte img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.carta:hover .arte img { transform: scale(1.07); }
+.carta .arte::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--noche-2), transparent 55%); }
+.estado {
+  position: absolute; top: 14px; left: 14px; z-index: 2; font: 700 12px "Chakra Petch", sans-serif;
+  letter-spacing: .1em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px;
+  background: rgba(11, 6, 22, .7); border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(6px);
+}
+.carta .info { padding: 4px 24px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.carta .icono { width: 64px; height: 64px; border-radius: 16px; margin-top: -40px; position: relative; z-index: 2; box-shadow: 0 8px 20px rgba(0, 0, 0, .5), 0 0 0 3px var(--noche-2); }
+.carta h3 { font-size: 28px; margin: 6px 0 0; }
+.genero { color: var(--c); font-weight: 700; font-size: 14px; }
+.carta p { color: var(--tenue); margin: 0; font-size: 15.5px; }
+.ver { margin-top: auto; padding-top: 12px; font-weight: 700; color: var(--texto); display: inline-flex; gap: 8px; align-items: center; }
+.ver::after { content: "→"; transition: transform .2s; }
+.carta:hover .ver::after { transform: translateX(5px); }
+
+.carta.secreta { cursor: default; min-height: 420px; justify-content: center; align-items: center; text-align: center; padding: 30px; }
+.carta.secreta .signo {
+  font: 400 110px/1 "Russo One", sans-serif; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: falla 3.2s infinite;
+}
+@keyframes falla {
+  0%, 88%, 100% { transform: none; text-shadow: none; }
+  90% { transform: translate(-4px, 2px) skewX(8deg); }
+  92% { transform: translate(5px, -2px) skewX(-6deg); }
+  94% { transform: translate(-2px, 0); }
+}
+.carta.secreta h3 { margin-top: 18px; }
+
+/* ---------- studio ---------- */
+.estudio { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.estudio .texto p { color: var(--tenue); font-size: 18px; }
+.estudio .texto strong { color: var(--texto); }
+.cifras { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cifra { padding: 26px 22px; border-radius: var(--radio); background: var(--panel); border: 1px solid var(--borde); }
+.cifra b { display: block; font: 400 46px/1 "Russo One", sans-serif; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cifra span { color: var(--tenue); font-size: 15px; }
+.valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.valor { padding: 24px; border-radius: var(--radio); background: var(--panel); border: 1px solid var(--borde); }
+.valor .ico { font-size: 28px; }
+.valor h3 { font-size: 21px; margin: 10px 0 6px; }
+.valor p { margin: 0; color: var(--tenue); font-size: 15.5px; }
+
+/* ---------- contact + footer ---------- */
+.contacto {
+  text-align: center; border-radius: 30px; padding: 60px 24px; margin-top: 40px; position: relative; overflow: hidden;
+  background: radial-gradient(120% 140% at 0% 0%, rgba(255, 106, 26, .25), transparent 55%), radial-gradient(120% 140% at 100% 100%, rgba(123, 47, 247, .3), transparent 55%), var(--noche-2);
+  border: 1px solid var(--borde);
+}
+.contacto h2 { font-size: clamp(30px, 4.5vw, 52px); margin: 0 0 12px; }
+.contacto p { color: var(--tenue); margin: 0 auto 26px; max-width: 520px; }
+footer {
+  max-width: var(--ancho); margin: 70px auto 0; padding: 30px 24px 40px; border-top: 1px solid var(--borde);
+  display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; color: var(--tenue); font-size: 14px;
+}
+footer .cols { display: flex; gap: 46px; flex-wrap: wrap; }
+footer h4 { margin: 0 0 8px; color: var(--texto); font: 700 14px "Chakra Petch", sans-serif; text-transform: uppercase; letter-spacing: .1em; }
+footer a { display: block; text-decoration: none; padding: 3px 0; }
+footer a:hover { color: var(--naranja-2); }
+
+/* ---------- game page ---------- */
+.ficha { display: grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items: center; max-width: var(--ancho); margin: 0 auto; padding: 120px 24px 40px; min-height: min(90svh, 980px); }
+.ficha .portadilla { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 3 / 4; box-shadow: 0 40px 80px -30px var(--c, var(--naranja)); }
+.ficha .portadilla img { width: 100%; height: 100%; object-fit: cover; }
+.ficha h1 { font-size: clamp(44px, 6.5vw, 80px); line-height: 1; margin: 16px 0 12px; }
+.ficha .genero { font-size: 16px; }
+.ficha .frase { font-size: 20px; color: var(--tenue); margin: 18px 0 24px; }
+.puntos { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 10px; }
+.puntos li { padding: 12px 16px 12px 46px; border-radius: 14px; background: var(--panel); border: 1px solid var(--borde); position: relative; }
+.puntos li::before { content: "✦"; position: absolute; left: 17px; color: var(--c, var(--naranja)); }
+.tiendas { display: flex; flex-wrap: wrap; gap: 12px; }
+.tienda { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 14px; background: #000; border: 1px solid rgba(255, 255, 255, .25); text-decoration: none; font-weight: 700; }
+.tienda small { display: block; font-weight: 400; font-size: 11px; color: var(--tenue); line-height: 1; }
+.tienda.pronto { opacity: .55; cursor: default; }
+.legales { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.legales a { font-size: 14px; color: var(--tenue); padding: 7px 12px; border-radius: 10px; border: 1px solid var(--borde); text-decoration: none; }
+.legales a:hover { color: var(--texto); border-color: var(--morado-2); }
+.volver { color: var(--tenue); text-decoration: none; font-weight: 700; }
+.volver:hover { color: var(--texto); }
+
+/* ---------- reveal on scroll ---------- */
+.aparece { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.aparece.visto { opacity: 1; transform: none; }
+
+html[lang="en"] .es { display: none; }
+html[lang="es"] .en { display: none; }
+
+@media (max-width: 860px) {
+  .portada, .ficha, .estudio { grid-template-columns: 1fr; }
+  .portada { padding-top: 96px; text-align: left; }
+  .escenario { max-width: 420px; margin: 0 auto; order: -1; width: 80%; }
+  .ficha .portadilla { max-width: 420px; }
+  .valores { grid-template-columns: 1fr; }
+  .barra nav a.opc { display: none; }
+  section { padding-top: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .aparece { opacity: 1; transform: none; }
+}

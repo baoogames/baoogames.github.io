@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "double-getaway",
+    "nombre": "Double Getaway",
+    "color": "#ff7a1a",
+    "color2": "#3d7bff",
+    "icono": "assets/img/double-getaway-icono.webp",
+    "arte": "assets/img/double-getaway-arte.webp",
+    "estado": { "es": "Próximamente", "en": "Coming soon" },
+    "genero": { "es": "Puzzle · Un deslizamiento", "en": "Puzzle · One swipe" },
+    "frase": {
+      "es": "Dos ladrones gemelos, un solo dedo. Desliza y los dos se mueven a la vez: llévalos a su alcantarilla antes de que los atrapen.",
+      "en": "Two twin thieves, one finger. Swipe and both move at once: get them to their manhole before they get caught."
+    },
+    "puntos": {
+      "es": ["358 niveles en museos y mansiones", "Piso encerado, esposas y pasillos angostos: cada regla cambia todo", "Pistas cuando te trabes, y se juega sin internet", "Tu progreso guardado en la nube con tu cuenta"],
+      "en": ["358 levels in museums and mansions", "Waxed floors, handcuffs and narrow halls: every rule changes everything", "Hints when you get stuck, plays offline too", "Your progress saved in the cloud with your account"]
+    },
+    "plataformas": ["iOS", "Android"],
+    "tiendas": {},
+    "legal": []
+  },
+  {
+    "slug": "dust-rider",
+    "nombre": "Dust Rider",
+    "color": "#ff8a3d",
+    "color2": "#ffd166",
+    "icono": "assets/img/dust-rider-icono.webp",
+    "arte": "assets/img/dust-rider-icono.webp",
+    "estado": { "es": "En pruebas", "en": "In testing" },
+    "genero": { "es": "Acción · Un dedo", "en": "Action · One finger" },
+    "frase": {
+      "es": "Galopa por pueblos del Viejo Oeste pintados a mano. Tumba a los bandidos antes de que desenfunden… y no le dispares a los civiles.",
+      "en": "Gallop through hand-painted Wild West towns. Take down the bandits before they draw… and don't shoot the townsfolk."
+    },
+    "puntos": {
+      "es": ["Toca para disparar: así de simple, así de difícil", "Duelos en línea contra el mundo o contra un amigo", "Cada pueblo más rápido, con señuelos que parecen bandidos", "Arte pintado a mano estilo anime"],
+      "en": ["Tap to shoot: that simple, that hard", "Online duels against the world or a friend", "Every town faster, with decoys that look like bandits", "Hand-painted anime-style art"]
+    },
+    "plataformas": ["iOS", "Android"],
+    "tiendas": {},
+    "legal": [
+      { "es": ["Política de privacidad", "dust-rider/privacidad/"], "en": ["Privacy policy", "dust-rider/privacy/"] },
+      { "es": ["Eliminar tu cuenta", "dust-rider/borrar-cuenta/"], "en": ["Delete your account", "dust-rider/delete-account/"] },
+      { "es": ["Enviar comentarios", "dust-rider/comentarios/"], "en": ["Send feedback", "dust-rider/feedback/"] }
+    ]
+  }
+]
