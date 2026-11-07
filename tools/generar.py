@@ -3,11 +3,14 @@
     python3 tools/generar.py
 
 Writes index.html and <slug>/index.html for every game. A new game = a new entry in juegos.json (and its
-images in assets/img/), then run this again. The legal pages (privacy, delete account, feedback) are made by
-each game's own repo (Dust Rider: tools/web/build_site.py) and only linked from here.
+images in assets/img/), then run this again.
+Legal pages: a game with a folder legal/<slug>/ gets them built here, in the site's look, from
+privacy-policy.{es,en}.md -> <slug>/privacidad/ and <slug>/privacy/, and delete-account.{es,en}.md ->
+<slug>/borrar-cuenta/ and <slug>/delete-account/ (needs the `markdown` package). Dust Rider's still come
+from its own repo (tools/web/build_site.py).
 Every text is written twice, <span class="es"> and <span class="en">; assets/sitio.js shows one.
 """
-import html, json, pathlib
+import html, json, pathlib, re
 
 RAIZ = pathlib.Path(__file__).resolve().parents[1]
 JUEGOS = json.loads((RAIZ / "juegos.json").read_text(encoding="utf-8"))
@@ -199,6 +202,34 @@ def ficha(j):
 """ + pie(base)
 
 
+LEGALES = [("privacy-policy", "privacidad", "privacy"), ("delete-account", "borrar-cuenta", "delete-account")]
+
+
+def legal(j):
+    """The game's legal pages, from legal/<slug>/*.md, in the site's look (one language per page)."""
+    import markdown
+    carpeta = RAIZ / "legal" / j["slug"]
+    if not carpeta.is_dir():
+        return
+    for fuente, es, en in LEGALES:
+        for lang, ruta, otra, nombre_otra in (("es", es, en, "English"), ("en", en, es, "Español")):
+            md = carpeta / f"{fuente}.{lang}.md"
+            if not md.exists():
+                continue
+            texto = md.read_text(encoding="utf-8")
+            texto = re.sub(r"(?m)^((?![-*] |\d+\. ).+)\n(?=[-*] |\d+\. )", r"\1\n\n", texto)   # a list right under a paragraph
+            cuerpo = markdown.markdown(texto)
+            titulo = re.search(r"^# (.+)$", texto, re.M).group(1)
+            pagina = cabeza(f"{titulo} · Baoo Games", titulo, "../../", j["arte"]).replace('<html lang="es">', f'<html lang="{lang}" data-fijo>') + f"""
+<main class="legal">
+  <a class="volver" href="../">← {e(j['nombre'])}</a>
+  <a class="otra" href="../{otra}/">{nombre_otra}</a>
+  <article>{cuerpo}</article>
+</main>
+""" + pie("../../")
+            escribir(f"{j['slug']}/{ruta}/index.html", pagina)
+
+
 def escribir(rel, texto):
     p = RAIZ / rel
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -209,3 +240,4 @@ def escribir(rel, texto):
 escribir("index.html", inicio())
 for j in JUEGOS:
     escribir(f"{j['slug']}/index.html", ficha(j))
+    legal(j)

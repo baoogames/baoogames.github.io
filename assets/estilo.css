@@ -277,3 +277,17 @@ html[lang="es"] .en { display: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .aparece { opacity: 1; transform: none; }
 }
+
+/* ---------- legal pages (privacy, delete account) ---------- */
+.legal { max-width: 860px; margin: 0 auto; padding: 110px 24px 20px; }
+.legal .otra { float: right; color: var(--naranja-2); font-weight: 700; text-decoration: none; }
+.legal article {
+  margin-top: 18px; padding: 38px 42px; border-radius: var(--radio);
+  background: rgba(20, 11, 38, .82); border: 1px solid var(--borde); color: #ddd6ec;
+}
+.legal h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.12; margin: 0 0 14px; color: var(--texto); }
+.legal h2 { font-size: 22px; margin: 34px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--borde); color: var(--texto); }
+.legal strong { color: var(--texto); }
+.legal a { color: var(--naranja-2); }
+.legal li { margin: 6px 0; }
+@media (max-width: 600px) { .legal article { padding: 24px 18px; } }

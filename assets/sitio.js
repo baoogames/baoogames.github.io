@@ -10,11 +10,17 @@
     const b = document.querySelector(".idioma");
     if (b) b.textContent = l === "es" ? "EN" : "ES";
   }
+  // a page written in one language (the legal ones) keeps it; its own link goes to the other language
+  if (raiz.hasAttribute("data-fijo")) {
+    const b = document.querySelector(".idioma");
+    if (b) b.remove();
+  } else {
   let guardado = null;
   try { guardado = localStorage.getItem("baoo.idioma"); } catch (e) {}
   idioma(guardado || ((navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en"));
   const boton = document.querySelector(".idioma");
   if (boton) boton.addEventListener("click", () => idioma(raiz.lang === "es" ? "en" : "es"));
+  }
 
   // ---- pixel embers rising in the studio's colors
   const lienzo = document.getElementById("chispas");
