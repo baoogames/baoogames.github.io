@@ -68,8 +68,8 @@
     "icono": "assets/img/dust-rider-icono.webp",
     "arte": "assets/img/dust-rider-icono.webp",
     "estado": {
-      "es": "En pruebas",
-      "en": "In testing"
+      "es": "Ya disponible",
+      "en": "Out now"
     },
     "genero": {
       "es": "Acción · Un dedo",
@@ -97,7 +97,10 @@
       "iOS",
       "Android"
     ],
-    "tiendas": {},
+    "tiendas": {
+      "ios": "https://apps.apple.com/app/dust-rider/id6824057434",
+      "android": "https://play.google.com/store/apps/details?id=com.baoogames.dustrider"
+    },
     "legal": [
       {
         "es": [
