@@ -42,14 +42,14 @@ def cabeza(titulo, descripcion, base, imagen="assets/img/og.jpg"):
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0616">
 <link rel="icon" href="{base}assets/img/favicon.png">
-<link rel="apple-touch-icon" href="{base}assets/img/favicon.png">
+<link rel="apple-touch-icon" href="{base}assets/img/apple-touch-icon.png">
 {FUENTES}
 <link rel="stylesheet" href="{base}assets/estilo.css">
 </head>
 <body>
 <div class="fondo" aria-hidden="true"><canvas id="chispas"></canvas><div class="rejilla"></div><div class="ruido"></div></div>
 <header class="barra">
-  <a class="marca" href="{base}"><img src="{base}assets/img/escudo.webp" alt=""><span>BAOO<b>GAMES</b></span></a>
+  <a class="marca" href="{base}"><img src="{base}assets/img/logo.svg" alt="Baoo Games"></a>
   <nav>
     <a class="opc" href="{base}#juegos">{b("Juegos", "Games")}</a>
     <a class="opc" href="{base}#estudio">{b("Estudio", "Studio")}</a>
@@ -68,7 +68,7 @@ def pie(base):
         for j in JUEGOS for l in j["legal"])
     return f"""<footer>
   <div>
-    <a class="marca" href="{base}"><img src="{base}assets/img/escudo.webp" alt=""><span>BAOO<b>GAMES</b></span></a>
+    <a class="marca" href="{base}"><img src="{base}assets/img/logo.svg" alt="Baoo Games"></a>
     <p>{b("Juegos para el teléfono, hechos en Colombia.", "Mobile games, made in Colombia.")}<br>© 2026 Baoo Games</p>
   </div>
   <div class="cols">
@@ -114,7 +114,7 @@ def inicio():
   </div>
   <div class="escenario aparece" aria-hidden="true">
     <div class="anillo"></div><div class="anillo dos"></div>
-    <img class="escudo" src="assets/img/escudo.webp" alt="">
+    <img class="escudo" src="assets/img/icono.svg" alt="">
   </div>
 </div>
 
@@ -139,7 +139,7 @@ def inicio():
   <div class="estudio">
     <div class="texto aparece">
       <span class="mini">{b("El estudio", "The studio")}</span>
-      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1;margin:8px 0 18px">{b("Dos amigos, un escudo", "Two friends, one shield")}</h2>
+      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1;margin:8px 0 18px">{b("Dos amigos, una sonrisa", "Two friends, one smile")}</h2>
       <p>{b("Baoo Games nació en Colombia con una idea simple: <strong>juegos fáciles de empezar y difíciles de soltar</strong>. Diseñamos, programamos y probamos cada juego nosotros mismos, hasta que se siente bien en la mano.",
             "Baoo Games was born in Colombia with a simple idea: <strong>games that are easy to start and hard to put down</strong>. We design, code and playtest every game ourselves until it feels right in your hand.")}</p>
     </div>

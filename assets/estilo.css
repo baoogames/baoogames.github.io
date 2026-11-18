@@ -69,7 +69,7 @@ h1, h2, h3, .marca { font-family: "Russo One", "Chakra Petch", system-ui, sans-s
   border-bottom: 1px solid var(--borde);
 }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 20px; }
-.marca img { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 106, 26, .45)); }
+.marca img { height: 42px; width: auto; display: block; }
 .marca b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .barra nav { margin-left: auto; display: flex; gap: 6px; align-items: center; }
 .barra nav a {
@@ -130,9 +130,9 @@ h1, h2, h3, .marca { font-family: "Russo One", "Chakra Petch", system-ui, sans-s
 .anillo.dos { inset: 14%; border: 1px solid rgba(255, 154, 61, .3); animation-duration: 26s; animation-direction: reverse; }
 @keyframes gira { to { transform: rotate(360deg); } }
 .escudo {
-  position: relative; width: 74%; transform-style: preserve-3d;
+  position: relative; width: 58%; transform-style: preserve-3d;
   animation: flota 6s ease-in-out infinite;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .6)) drop-shadow(0 0 30px rgba(123, 47, 247, .35));
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .6)) drop-shadow(0 0 34px rgba(240, 63, 42, .45));
   transition: transform .15s ease-out;
 }
 @keyframes flota { 50% { translate: 0 -16px; } }
