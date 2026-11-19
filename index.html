@@ -1,126 +1,193 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-type="software" data-radius="round" data-buttons="pill" data-ground="sand" data-motion>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baoo Games · Juegos para el teléfono</title>
-<meta name="description" content="Baoo Games es un estudio de videojuegos de Colombia. Hacemos juegos para el teléfono que se aprenden en un segundo y no se sueltan.">
-<meta property="og:title" content="Baoo Games · Juegos para el teléfono">
-<meta property="og:description" content="Baoo Games es un estudio de videojuegos de Colombia. Hacemos juegos para el teléfono que se aprenden en un segundo y no se sueltan.">
-<meta property="og:image" content="https://baoogames.com/assets/img/og.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baoo Games: juegos para el teléfono hechos en Colombia</title>
+<meta name="description" content="Estudio de videojuegos de Colombia. Dust Rider ya está gratis en App Store y Google Play; Double Getaway, Bola Mutante, Electrovolt y Food Truck vienen en camino.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0616">
+<meta property="og:title" content="Baoo Games: juegos para el teléfono hechos en Colombia">
+<meta property="og:description" content="Estudio de videojuegos de Colombia. Dust Rider ya está gratis en App Store y Google Play; Double Getaway, Bola Mutante, Electrovolt y Food Truck vienen en camino.">
+<meta property="og:image" content="https://baoogames.com/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://baoogames.com/">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#fefbf5">
+<meta name="site-kind" content="gaming">
+<meta name="page-type" content="software">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kit/system.css">
+<link rel="stylesheet" href="assets/kit/ui/cards.css">
+<link rel="stylesheet" href="assets/kit/motion/motion.css">
+<link rel="stylesheet" href="assets/kit/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/kit/layout/layout.css">
+<link rel="stylesheet" href="assets/kit/icons/icon.css">
+<style>
+:root {
+  --p-bg: #fefbf5; --p-surface: #f6eee2; --p-ink: #2b1d17; --p-muted: #746962;
+  --p-accent: #f03f2a; --p-accent-ink: #fefbf5; --p-action: #d63220; --p-action-ink: #fefbf5;
+  --p-inv-bg: #2b1d17; --p-inv-surface: #382a24; --p-inv-ink: #fefbf5; --p-inv-muted: #a79f98;
+  --p-inv-accent: #f03f2a; --p-inv-accent-ink: #111111; --p-inv-action: #f03f2a; --p-inv-action-ink: #111111;
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+  --ly-scale: 0.9;
+}
+</style>
 <link rel="stylesheet" href="assets/estilo.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/kit/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/kit/moments/moments.js">
+<link rel="modulepreload" href="assets/kit/moments/lib.js">
+<link rel="modulepreload" href="assets/kit/moments/giant-type-pass/moment.js">
 </head>
 <body>
-<div class="fondo" aria-hidden="true"><canvas id="chispas"></canvas><div class="rejilla"></div><div class="ruido"></div></div>
-<header class="barra">
-  <a class="marca" href=""><img src="assets/img/logo.svg" alt="Baoo Games"></a>
-  <nav>
-    <a class="opc" href="#juegos"><span class="es">Juegos</span><span class="en">Games</span></a>
-    <a class="opc" href="#estudio"><span class="es">Estudio</span><span class="en">Studio</span></a>
-    <a class="opc" href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
-    <button class="idioma" type="button" aria-label="Language">EN</button>
-  </nav>
+<!-- kind: gaming (a studio and its five games; page type software)
+     hero: the studio's logo and story beside a stack of three game cards (image-to-code, idea B), nav-centre, close-word, footer-statement, rhythm media-band,
+     buttons pill, mark: the client's logo; palette: the brand's red and cream (start.mjs brand), type sora
+     sections: published (Dust Rider), in development (Double Getaway, Bola Mutante), the studio (moment), next (Electrovolt, Food Truck)
+     moments: giant-type-pass in #estudio -->
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top"><span class="es">Ir al contenido</span><span class="en">Skip to content</span></a>
+    <a class="nav__logo" href="#top"><img src="assets/img/logo.svg" alt="Baoo Games" width="150" height="42"></a>
+    <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item"><a class="nav__link" href="#publicados"><span class="es">Publicados</span><span class="en">Out now</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#en-desarrollo"><span class="es">En desarrollo</span><span class="en">In development</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#lo-que-viene"><span class="es">Lo que viene</span><span class="en">Next</span></a></div>
+      <div class="nav__item"><a class="nav__link" href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a></div>
+    </nav>
+    <div class="nav__actions">
+      <button class="nav__link idioma" type="button" aria-label="English / Español">EN</button>
+      <a class="btn btn--primary" href="#publicados"><span class="es">Ver los juegos</span><span class="en">See the games</span></a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
 </header>
-
-<main>
-<div class="portada">
-  <div class="aparece">
-    <span class="etiqueta"><i></i><span class="es">Estudio indie · Colombia</span><span class="en">Indie studio · Colombia</span></span>
-    <h1><span><span class="es">Juegos que</span><span class="en">Games that</span></span><span class="brillo"><span class="es">no puedes</span><span class="en">you can't</span></span><span><span class="es">soltar.</span><span class="en">put down.</span></span></h1>
-    <p><span class="es">Somos Baoo Games. Hacemos juegos para el teléfono que se aprenden en un segundo, se juegan con un dedo y te hacen decir «una más».</span><span class="en">We're Baoo Games. We make mobile games you learn in a second, play with one finger and keep saying “one more”.</span></p>
-    <div class="botones">
-      <a class="boton" href="#juegos"><span class="es">Ver nuestros juegos</span><span class="en">See our games</span></a>
-      <a class="boton fantasma" href="#contacto"><span class="es">Hablemos</span><span class="en">Get in touch</span></a>
+<main id="top">
+  <section class="hero portada" data-enter aria-labelledby="hero-h">
+    <div class="wrap grid">
+      <div class="span-6 portada__texto">
+        <h1 id="hero-h"><img class="portada__logo" src="assets/img/logo.svg" alt="Baoo Games:" width="560" height="173"> <span class="es">Hacemos juegos para tu teléfono</span><span class="en">We make games for your phone</span></h1>
+        <p class="hero__lead"><span class="es">Baoo Games son dos amigos en Colombia que hacen juegos cortos, bonitos y gratis para iPhone y Android. Uno ya está en las tiendas y cuatro vienen en camino.</span><span class="en">Baoo Games is two friends in Colombia making short, good-looking free games for iPhone and Android. One is out now and four more are on the way.</span></p>
+        <div class="btn-row"><a class="btn btn--primary" href="#publicados"><span class="es">Ver los juegos</span><span class="en">See the games</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a></div>
+      </div>
+      <div class="span-6 portada__pila" aria-hidden="false">
+        <a class="portada__carta portada__carta--3" href="#lo-que-viene"><img src="assets/img/inicio/ft-portada.webp" width="1600" height="1008" alt="Food Truck: un camión de comida con dos cocineros al atardecer" data-alt-en="Food Truck: a food truck with two cooks at dusk" style="object-position: 22% 50%" data-source="client" data-subject="Food Truck art"></a>
+        <a class="portada__carta portada__carta--2" href="#en-desarrollo"><img src="assets/img/inicio/dg-museo.webp" width="720" height="1280" style="object-position: 40% 50%" alt="Double Getaway: los dos ladrones gemelos en un museo" data-alt-en="Double Getaway: the two twin thieves in a museum" data-source="client" data-subject="Double Getaway art"></a>
+        <a class="portada__carta portada__carta--1" href="#publicados"><img src="assets/img/inicio/dr-cabalga.webp" width="1920" height="1088" alt="Dust Rider: un vaquero galopa por el desierto al atardecer" data-alt-en="Dust Rider: a cowboy gallops across the desert at sunset" style="object-position: 52% 50%" fetchpriority="high" data-source="client" data-subject="Dust Rider key art"></a>
+      </div>
     </div>
-  </div>
-  <div class="escenario aparece" aria-hidden="true">
-    <div class="anillo"></div><div class="anillo dos"></div>
-    <img class="escudo" src="assets/img/icono.svg" alt="">
-  </div>
-</div>
+  </section>
 
-<div class="cinta" aria-hidden="true"><div><span>HECHO EN COLOMBIA</span><span>JUEGOS PARA EL TELÉFONO</span><span>UN DEDO BASTA</span><span>MADE IN COLOMBIA</span><span>MOBILE GAMES</span><span>ONE FINGER IS ENOUGH</span><span>HECHO EN COLOMBIA</span><span>JUEGOS PARA EL TELÉFONO</span><span>UN DEDO BASTA</span><span>MADE IN COLOMBIA</span><span>MOBILE GAMES</span><span>ONE FINGER IS ENOUGH</span></div></div>
-
-<section id="juegos">
-  <div class="titulo aparece">
-    <div><span class="mini"><span class="es">Nuestros juegos</span><span class="en">Our games</span></span><h2><span class="es">Elige tu partida</span><span class="en">Pick your game</span></h2></div>
-    <p><span class="es">Cada juego cabe en tu bolsillo y en un descanso de cinco minutos.</span><span class="en">Every game fits in your pocket and in a five-minute break.</span></p>
-  </div>
-  <div class="juegos">
-<a class="carta aparece" href="double-getaway/" style="--c:#ff7a1a">
-  <div class="arte"><span class="estado"><span class="es">Próximamente</span><span class="en">Coming soon</span></span><img src="assets/img/double-getaway-arte.webp" alt="Double Getaway" loading="lazy"></div>
-  <div class="info">
-    <img class="icono" src="assets/img/double-getaway-icono.webp" alt="" loading="lazy">
-    <h3>Double Getaway</h3>
-    <span class="genero"><span class="es">Puzzle · Un deslizamiento</span><span class="en">Puzzle · One swipe</span></span>
-    <p><span class="es">Dos ladrones gemelos, un solo dedo. Desliza y los dos se mueven a la vez: llévalos a su alcantarilla antes de que los atrapen.</span><span class="en">Two twin thieves, one finger. Swipe and both move at once: get them to their manhole before they get caught.</span></p>
-    <span class="ver"><span class="es">Ver juego</span><span class="en">See game</span></span>
-  </div>
-</a>
-<a class="carta aparece" href="dust-rider/" style="--c:#ff8a3d">
-  <div class="arte"><span class="estado"><span class="es">Ya disponible</span><span class="en">Out now</span></span><img src="assets/img/dust-rider-icono.webp" alt="Dust Rider" loading="lazy"></div>
-  <div class="info">
-    <img class="icono" src="assets/img/dust-rider-icono.webp" alt="" loading="lazy">
-    <h3>Dust Rider</h3>
-    <span class="genero"><span class="es">Acción · Un dedo</span><span class="en">Action · One finger</span></span>
-    <p><span class="es">Galopa por pueblos del Viejo Oeste pintados a mano. Tumba a los bandidos antes de que desenfunden… y no le dispares a los civiles.</span><span class="en">Gallop through hand-painted Wild West towns. Take down the bandits before they draw… and don&#x27;t shoot the townsfolk.</span></p>
-    <span class="ver"><span class="es">Ver juego</span><span class="en">See game</span></span>
-  </div>
-</a>
-    <div class="carta secreta aparece">
-      <div class="signo">?</div>
-      <h3><span class="es">El próximo</span><span class="en">What's next</span></h3>
-      <p><span class="es">Ya estamos cocinando el siguiente. Pronto lo verás aquí.</span><span class="en">We're already cooking the next one. You'll see it here soon.</span></p>
+  <section class="section banda banda--rayas" id="publicados" aria-labelledby="pub-h">
+    <div class="wrap grid">
+      <div class="span-5 stack-6">
+        <div class="section-head">
+          <p class="juego__estado"><span class="es">Publicado · western · gratis</span><span class="en">Out now · western · free</span></p>
+          <h2 id="pub-h"><span class="es">Dust Rider, un western para tu teléfono.</span><span class="en">Dust Rider, a Wild West game for phones.</span></h2>
+          <p><span class="es">Galopas por doce pueblos del Viejo Oeste y tocas a cada bandido antes de que desenfunde. También hay duelos en línea contra otra persona y un campo de tiro.</span><span class="en">Gallop through twelve Wild West towns and tap every bandit before he draws. There are online duels against another person and a shooting range too.</span></p>
+        </div>
+        <div class="tiendas"><a class="tienda" href="https://apps.apple.com/app/dust-rider/id6824057434"><img class="ic" src="assets/img/iconos/app-store.svg" alt="" width="40" height="40"><span><small><span class="es">Descárgalo en</span><span class="en">Download on</span></small>App Store</span></a><a class="tienda" href="https://play.google.com/store/apps/details?id=com.baoogames.dustrider"><img class="ic" src="assets/img/iconos/google-play.svg" alt="" width="40" height="40"><span><small><span class="es">Disponible en</span><span class="en">Get it on</span></small>Google Play</span></a></div>
+        <p class="publicado__enlaces"><a class="link trailer" href="assets/video/dust-rider-trailer-es.mp4" data-es="assets/video/dust-rider-trailer-es.mp4" data-en="assets/video/dust-rider-trailer-en.mp4"><span class="es">Ver el tráiler (36 s)</span><span class="en">Watch the trailer (36 s)</span></a>
+          <a class="link" href="dust-rider/"><span class="es">Ver la página de Dust Rider</span><span class="en">See the Dust Rider page</span></a></p>
+      </div>
+      <figure class="frame frame--photo span-6 start-7 publicado__foto marco-video"><img class="frame__img" src="assets/img/inicio/dr-cabalga.webp" width="1920" height="1088" alt="Un vaquero galopa hacia la cámara por un desierto de mesetas rojas al atardecer" data-alt-en="A cowboy gallops toward the camera across a desert of red mesas at sunset" loading="lazy" data-source="client" data-subject="Dust Rider key art">
+      </figure>
     </div>
-  </div>
-</section>
+    <svg class="ola" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 64 C 180 8, 360 8, 540 52 S 900 112, 1080 64 S 1350 16, 1440 40 V120 H0 Z"/></svg>
+  </section>
 
-<section id="estudio">
-  <div class="estudio">
-    <div class="texto aparece">
-      <span class="mini"><span class="es">El estudio</span><span class="en">The studio</span></span>
-      <h2 style="font-size:clamp(34px,5vw,58px);line-height:1;margin:8px 0 18px"><span class="es">Dos amigos, una sonrisa</span><span class="en">Two friends, one smile</span></h2>
-      <p><span class="es">Baoo Games nació en Colombia con una idea simple: <strong>juegos fáciles de empezar y difíciles de soltar</strong>. Diseñamos, programamos y probamos cada juego nosotros mismos, hasta que se siente bien en la mano.</span><span class="en">Baoo Games was born in Colombia with a simple idea: <strong>games that are easy to start and hard to put down</strong>. We design, code and playtest every game ourselves until it feels right in your hand.</span></p>
+  <section class="section banda banda--arena" id="en-desarrollo" aria-labelledby="des-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="des-h"><span class="es">En desarrollo.</span><span class="en">In development.</span> <span class="muted"><span class="es">Dos juegos que ya probamos en el teléfono.</span><span class="en">Two games we already play on our phones.</span></span></h2>
+      </div>
+      <div class="grid">
+          <article class="card card--open span-6 juego">
+            <figure class="frame frame--photo juego__foto"><img class="frame__img" src="assets/img/inicio/dg-museo.webp" alt="Los dos ladrones gemelos corren por la sala de un museo con una estatuilla dorada" data-alt-en="The two twin thieves run through a museum hall with a golden statuette" width="720" height="1280" loading="lazy" data-source="client" data-subject="Double Getaway art"></figure>
+            <p class="juego__estado"><span class="es">Puzzle · pronto en iOS y Android</span><span class="en">Puzzle · coming to iOS and Android</span></p>
+            <h3>Double Getaway</h3>
+            <p><span class="es">Deslizas una vez y los dos ladrones gemelos se mueven a la vez. Llévalos a su alcantarilla en 358 niveles.</span><span class="en">Swipe once and both twin thieves move at the same time. Get them to their manhole across 358 levels.</span></p>
+            <a class="link" href="double-getaway/"><span class="es">Ver la página de Double Getaway</span><span class="en">See the Double Getaway page</span></a>
+          </article>
+          <article class="card card--open span-6 juego">
+            <figure class="frame frame--photo juego__foto"><img class="frame__img" src="assets/img/inicio/bm-portada.webp" alt="Una bola roja salta sobre púas amarillas frente a una fábrica al atardecer" data-alt-en="A red ball jumps over yellow spikes in front of a factory at dusk" width="1600" height="1000" loading="lazy" data-source="client" data-subject="Bola Mutante art"></figure>
+            <p class="juego__estado"><span class="es">Arcade · en pruebas en el teléfono</span><span class="en">Arcade · testing on phones</span></p>
+            <h3>Bola Mutante</h3>
+            <p><span class="es">La bola avanza sola y tú cambias su material con un toque: acero, goma, burbuja o chicle. Cada obstáculo pide el suyo.</span><span class="en">The ball rolls on its own and you change what it is made of with a tap: steel, rubber, bubble or gum. Every obstacle needs the right one.</span></p>
+          </article>
+      </div>
     </div>
-    <div class="cifras aparece">
-      <div class="cifra"><b>2</b><span><span class="es">juegos en camino</span><span class="en">games on the way</span></span></div>
-      <div class="cifra"><b>1</b><span><span class="es">dedo para jugar</span><span class="en">finger to play</span></span></div>
-      <div class="cifra"><b>358</b><span><span class="es">niveles en Double Getaway</span><span class="en">levels in Double Getaway</span></span></div>
-      <div class="cifra"><b>100%</b><span><span class="es">indie</span><span class="en">indie</span></span></div>
-    </div>
-  </div>
-  <div class="valores">
-    <div class="valor aparece"><div class="ico">🎮</div><h3><span class="es">Un segundo para aprender</span><span class="en">One second to learn</span></h3><p><span class="es">Si hay que explicarlo mucho, no está listo.</span><span class="en">If it needs a long explanation, it isn't ready.</span></p></div>
-    <div class="valor aparece"><div class="ico">⚡</div><h3><span class="es">Partidas cortas</span><span class="en">Short sessions</span></h3><p><span class="es">Para la fila, el bus o el descanso.</span><span class="en">For the queue, the bus or the break.</span></p></div>
-    <div class="valor aparece"><div class="ico">🛡️</div><h3><span class="es">Juego limpio</span><span class="en">Fair play</span></h3><p><span class="es">Anuncios opcionales y tu privacidad primero.</span><span class="en">Optional ads and your privacy first.</span></p></div>
-  </div>
-</section>
+  </section>
 
-<section id="contacto">
-  <div class="contacto aparece">
-    <span class="mini"><span class="es">Contacto</span><span class="en">Contact</span></span>
-    <h2><span class="es">¿Jugamos?</span><span class="en">Let's play</span></h2>
-    <p><span class="es">Prensa, alianzas, ideas o un bug que encontraste: escríbenos.</span><span class="en">Press, partnerships, ideas or a bug you found: drop us a line.</span></p>
-    <a class="boton" href="mailto:contact@baoogames.com">contact@baoogames.com</a>
-  </div>
-</section>
+  <section class="section statement" id="estudio" data-moment="giant-type-pass" data-moment-opts='{"image": "/assets/img/inicio/dg-mansion.webp", "travel": 60, "focusY": 55}' aria-labelledby="estudio-h">
+    <div class="wrap">
+      <h2 class="mo-gt__type" id="estudio-h"><span class="es">Dos amigos,<br>cinco juegos</span><span class="en">Two friends,<br>five games</span></h2>
+      <div class="mo-gt__row"><p><span class="es">Cada juego lo hacemos entre los dos, del primer boceto a la tienda. Todos usan la misma cuenta de Baoo Games, así tu perfil te sigue de un juego a otro.</span><span class="en">We make every game between the two of us, from the first sketch to the store. They all share one Baoo Games account, so your profile follows you from game to game.</span></p>
+        <a class="link" href="#contacto"><span class="es">Escribirnos</span><span class="en">Write to us</span></a></div>
+    </div>
+  </section>
+
+  <section class="section banda banda--oscura" id="lo-que-viene" aria-labelledby="viene-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="viene-h"><span class="es">Lo que viene.</span><span class="en">What's next.</span> <span class="muted"><span class="es">Dos ideas más grandes que estamos diseñando.</span><span class="en">Two bigger ideas we are designing.</span></span></h2>
+      </div>
+      <div class="grid">
+          <article class="card card--open span-6 juego">
+            <figure class="frame frame--photo juego__foto"><img class="frame__img" src="assets/img/inicio/ev-milo.webp" alt="Milo, un muchacho con gafas de soldador, en su celda bajo tierra con literas" data-alt-en="Milo, a boy with welding goggles, in his underground cell with bunk beds" width="1280" height="720" loading="lazy" data-source="client" data-subject="Electrovolt art"></figure>
+            <p class="juego__estado"><span class="es">Aventura 3D · diseñando el primer nivel</span><span class="en">3D adventure · designing the first level</span></p>
+            <h3>Electrovolt</h3>
+            <p><span class="es">Milo vive bajo tierra y descubre que el sol no quema. Con Electrovolt, un robot de antes de la IA, se enfrenta a las dos IA que mandan arriba.</span><span class="en">Milo lives underground and finds out the sun doesn't burn. With Electrovolt, a robot from before AI, he takes on the two AIs that rule up above.</span></p>
+          </article>
+          <article class="card card--open span-6 juego">
+            <figure class="frame frame--photo juego__foto"><img class="frame__img" src="assets/img/inicio/ft-portada.webp" alt="Un camión de comida rojo y amarillo con dos cocineros, perseguido por una patrulla en una calle al atardecer" data-alt-en="A red and yellow food truck with two cooks, chased by a police car down a street at dusk" width="1600" height="1008" loading="lazy" data-source="client" data-subject="Food Truck art"></figure>
+            <p class="juego__estado"><span class="es">Cooperativo · en diseño</span><span class="en">Co-op · in design</span></p>
+            <h3>Food Truck</h3>
+            <p><span class="es">De 2 a 4 jugadores cocinan tacos, hamburguesas y perros calientes en un camión de comida mientras la policía los persigue por la ciudad.</span><span class="en">Two to four players cook tacos, burgers and hot dogs in a food truck while the police chase them across the city.</span></p>
+          </article>
+      </div>
+    </div>
+  </section>
 </main>
-<footer>
-  <div>
-    <a class="marca" href=""><img src="assets/img/logo.svg" alt="Baoo Games"></a>
-    <p><span class="es">Juegos para el teléfono, hechos en Colombia.</span><span class="en">Mobile games, made in Colombia.</span><br>© 2026 Baoo Games</p>
-  </div>
-  <div class="cols">
-    <div><h4><span class="es">Juegos</span><span class="en">Games</span></h4><a href="double-getaway/">Double Getaway</a><a href="dust-rider/">Dust Rider</a></div>
-    <div><h4><span class="es">Legal</span><span class="en">Legal</span></h4><a href="double-getaway/privacidad/" class="es">Double Getaway · Política de privacidad</a><a href="double-getaway/privacy/" class="en">Double Getaway · Privacy policy</a><a href="double-getaway/borrar-cuenta/" class="es">Double Getaway · Borrar tu cuenta</a><a href="double-getaway/delete-account/" class="en">Double Getaway · Delete your account</a><a href="dust-rider/privacidad/" class="es">Dust Rider · Política de privacidad</a><a href="dust-rider/privacy/" class="en">Dust Rider · Privacy policy</a><a href="dust-rider/borrar-cuenta/" class="es">Dust Rider · Eliminar tu cuenta</a><a href="dust-rider/delete-account/" class="en">Dust Rider · Delete your account</a><a href="dust-rider/comentarios/" class="es">Dust Rider · Enviar comentarios</a><a href="dust-rider/feedback/" class="en">Dust Rider · Send feedback</a></div>
-    <div><h4><span class="es">Contacto</span><span class="en">Contact</span></h4><a href="mailto:contact@baoogames.com">contact@baoogames.com</a></div>
+<footer class="footer closing footer--statement" id="contacto" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div>
+          <h2 id="close-h"><span class="es">Contacto con el estudio</span><span class="en">Contact the studio</span></h2>
+          <p class="t-lead"><span class="es">Prensa, alianzas o un error que encontraste en un juego: respondemos en español y en inglés.</span><span class="en">Press, partnerships or a bug you found in a game: we answer in Spanish and English.</span></p>
+        </div>
+        <a class="btn btn--primary" href="mailto:contact@baoogames.com"><span class="es">Escribir a Baoo Games</span><span class="en">Email Baoo Games</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <a class="close__name" href="#top"><img src="assets/img/logo.svg" alt="Baoo Games" width="560" height="173" loading="lazy"></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <p class="footer__lede"><span class="es">Baoo Games es un estudio de dos amigos en Colombia que hace juegos para el teléfono.</span><span class="en">Baoo Games is a studio of two friends in Colombia making games for your phone.</span></p>
+        </div>
+        <div class="span-2 start-6 footer__col"><h3><span class="es">Juegos</span><span class="en">Games</span></h3><ul><li><a href="double-getaway/">Double Getaway</a></li><li><a href="dust-rider/">Dust Rider</a></li></ul></div>
+        <div class="span-4 start-9 footer__col"><h3><span class="es">Privacidad</span><span class="en">Privacy</span></h3><ul><li><a href="double-getaway/privacidad/" class="es">Double Getaway: política de privacidad</a><a href="double-getaway/privacy/" class="en">Double Getaway: privacy policy</a></li><li><a href="double-getaway/borrar-cuenta/" class="es">Double Getaway: borrar tu cuenta</a><a href="double-getaway/delete-account/" class="en">Double Getaway: delete your account</a></li><li><a href="dust-rider/privacidad/" class="es">Dust Rider: política de privacidad</a><a href="dust-rider/privacy/" class="en">Dust Rider: privacy policy</a></li><li><a href="dust-rider/borrar-cuenta/" class="es">Dust Rider: eliminar tu cuenta</a><a href="dust-rider/delete-account/" class="en">Dust Rider: delete your account</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Baoo Games</span>
+        <a href="mailto:contact@baoogames.com">contact@baoogames.com</a>
+        <button class="link idioma" type="button" aria-label="English / Español">EN</button>
+      </div>
+    </div>
   </div>
 </footer>
 <script src="assets/sitio.js"></script>
+<script type="module" src="assets/kit/system.js"></script>
+<script type="module" src="assets/kit/motion/motion.js"></script>
+<script type="module" src="assets/kit/layout/layout.js"></script>
 </body>
 </html>
